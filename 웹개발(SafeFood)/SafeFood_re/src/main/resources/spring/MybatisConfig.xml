@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="edu.ssafy.dto.Food" alias="food" />
+		<typeAlias type="edu.ssafy.dto.Member" alias="member" />
+		<typeAlias type="edu.ssafy.dto.Board" alias="board" />
+		<typeAlias type="edu.ssafy.dto.Reset" alias="reset" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="spring/Food.xml" />
+		<mapper resource="spring/Member.xml" />		
+		<mapper resource="spring/Board.xml" />	
+		<mapper resource="spring/IBM.xml" />
+		<mapper resource="spring/Reset.xml" />
+	</mappers>
+</configuration>

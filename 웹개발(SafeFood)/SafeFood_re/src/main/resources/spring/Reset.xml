@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.reset">
+
+	<!-- 맴버 -->
+	<insert id="insertreset" parameterType="reset">
+		insert into reset(id,date) values(#{id},#{date})
+	</insert>
+	
+	<delete id="deletereset" parameterType="string">
+		delete from reset where id=#{id}
+	</delete>
+	
+	<update id="updatereset" parameterType="reset">
+		update reset set date=#{date} where id=#{id}
+	</update>
+	
+	<select id="selectreset" parameterType="string" resultType="reset">
+		select * from reset where id=#{id}
+	</select>
+</mapper>

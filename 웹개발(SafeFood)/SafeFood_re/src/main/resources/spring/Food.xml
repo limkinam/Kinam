@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.food">
+
+	<insert id="InsertProduct" parameterType="food">
+		insert
+		into product(code, maker, material, img, allergy)
+		values
+		<foreach item="item" index="index" collection="list" open="(" separator="),(" close=")">
+			#{item.code}, #{item.maker}, #{item.material}, #{item.img}, #{item.allergy}
+		</foreach>
+	</insert>
+
+	<insert id="InsertNutrition" parameterType="food">
+		insert
+		into nutrition(code, name, supportpereat, calory, carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat)
+		values
+		<foreach item="item" index="index" collection="list" open="(" separator="),(" close=")">
+			#{item.code}, #{item.name}, #{item.supportpereat}, #{item.calory}, #{item.carbo}, #{item.protein}, #{item.fat}, #{item.sugar}, #{item.natrium}, #{item.chole}, #{item.fattyacid}, #{item.transfat}
+		</foreach>
+	</insert>
+
+	<select id="SearchAll" resultType="food">
+		select *
+		from food
+	</select>
+
+	<select id="ConditionSearch" parameterType="map" resultType="food">
+		select *
+		from food
+		where ${key} LIKE CONCAT('%', #{value}, '%')
+	</select>
+
+	<select id="CalorySearch" parameterType="string" resultType="food">
+		select *
+		from food
+		where calory &lt;= #{cal}
+	</select>
+	
+	<select id="powersetSearch" parameterType="string" resultType="food">
+		select *
+		from food
+		where calory &lt;= #{cal}
+	</select>
+
+	<select id="search" parameterType="string" resultType="food">
+		select *
+		from food
+		where name like #{name}
+	</select>
+
+	<select id="search_name" parameterType="string" resultType="food">
+		select *
+		from food
+		where name like #{name}
+	</select>
+
+	<select id="selectFoods" resultType="food">
+		select *
+		from food
+	</select>
+	
+</mapper>

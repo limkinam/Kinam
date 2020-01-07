@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.member">
+	
+	<!-- 맴버 -->
+	<insert id="insertmember" parameterType="member">
+		insert into members values(#{id},#{pw},#{email},#{name},#{cm},#{kg},#{gender},#{allergy},#{favor},#{eating},#{money})
+	</insert>
+	
+	<delete id="deletemember" parameterType="String">
+		delete from members where id=#{id}
+	</delete>
+	
+	<update id="updatemember" parameterType="member">
+		update members set pw=#{pw},email=#{email},name=#{name},cm=#{cm},kg=#{kg},gender=#{gender},allergy=#{allergy},favor=#{favor},eating=#{eating},money=#{money} where id=#{id}
+	</update>
+	
+	<select id="selectmember" parameterType="String" resultType="member">
+		select * from members where id=#{id}
+	</select>
+	
+	<update id="updatefavor" parameterType="member">
+	update members set favor=#{favor} where id=#{id}
+	</update>
+	
+	<update id="updateeating" parameterType="member">
+	update members set eating=#{eating} where id=#{id}
+	</update>
+	
+</mapper>
